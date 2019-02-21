@@ -54,14 +54,16 @@ Where the `latest_version` is the value from `Download` badge.
 All you need to show the viewer is to pass the context, list or array of your image objects and the implementation of the `ImageLoader` and call the `show()` method:
 
 For Kotlin
-```java StfalconImageViewer.Builder<Image>(context, images) { view, image ->
+```java
+StfalconImageViewer.Builder<Image>(context, images) { view, image ->
     Picasso.get().load(image.url).into(view)
 }.show()
 ```
 ========================================================================
 
 For Java
-```java new StfalconImageViewer.Builder<>(context, images, (imageView, image) -> {
+```java
+new StfalconImageViewer.Builder<>(context, images, (imageView, image) -> {
             ImageLoader.loadImage(context, imageView, image, R.drawable.ic_placeholder);
         }).withStartPosition(0).show();
 ```
