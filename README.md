@@ -52,10 +52,15 @@ Where the `latest_version` is the value from `Download` badge.
 ### Usage
 #### Simple usage
 All you need to show the viewer is to pass the context, list or array of your image objects and the implementation of the `ImageLoader` and call the `show()` method:
-```java
+```Kotlin
 StfalconImageViewer.Builder<Image>(context, images) { view, image ->
     Picasso.get().load(image.url).into(view)
 }.show()
+```
+```Java
+new StfalconImageViewer.Builder<>(context, new String[]{imagePath}, (imageView, image) -> {
+            ImageLoader.loadImage(context, imageView, image, R.drawable.ic_placeholder);
+        }).withStartPosition(0).show();
 ```
 Piece of cake!
 
